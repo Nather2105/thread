@@ -1,3 +1,5 @@
+require 'pathname'
+
 module ThreadEx
   class ThreadApp
     class << self
@@ -19,7 +21,11 @@ module ThreadEx
 
       def converter
         each_file do |file|
-          puts "#{file}"
+          puts "#{file} #{file.basename} #{file.basename(@ext)}"
+          # p file
+          name = file.basename(@ext)
+          new_file = File.expand_path("#{@html}/#{name}.html", __dir__)
+          puts new_file
         end
       end
 
@@ -28,7 +34,7 @@ module ThreadEx
       def each_file
         folder = File.expand_path("#{@md}/*#{@ext}", __dir__)
         Dir.glob(folder) do |f|
-          yield f
+          yield Pathname.new(f)
         end
       end
       def print_accessors
