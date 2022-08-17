@@ -1,0 +1,12 @@
+GEM
+  specs:
+    pathname (0.2.0)
+
+PLATFORMS
+  x86_64-darwin-20
+
+DEPENDENCIES
+  pathname
+
+BUNDLED WITH
+   2.3.7
