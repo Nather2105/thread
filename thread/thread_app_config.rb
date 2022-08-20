@@ -1,8 +1,7 @@
 module ThreadEx
     class ThreadApp
       class << self
-        attr_accessor :md, :html, :ext
-
+        attr_accessor :md, :html, :ext, :threads
         
         def config(params = {})
           if block_given?
@@ -11,6 +10,7 @@ module ThreadEx
             @md ||= params[:md] || "md"
             @html ||= params[:html] || "html"
             @ext ||= params[:ext] || ".md"
+            @threads ||= [] 
             print_accessors
           end
         end
