@@ -1,11 +1,16 @@
 GEM
+  remote: https://rubygems.org/
   specs:
+    kramdown (2.4.0)
+      rexml
     pathname (0.2.0)
+    rexml (3.2.5)
 
 PLATFORMS
   x86_64-darwin-20
 
 DEPENDENCIES
+  kramdown
   pathname
 
 BUNDLED WITH
