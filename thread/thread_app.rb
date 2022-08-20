@@ -1,4 +1,5 @@
 require "pathname"
+require "kramdown"
 require_relative "thread_app_config"
 
 module ThreadEx
@@ -10,11 +11,18 @@ module ThreadEx
           puts "#{file} #{file.basename} #{file.basename(@ext)} #{file_name}"
           # p file
           html_file_path = File.expand_path("#{@html}/#{file_name}.html", __dir__)
-          save(html_file_path, html_file_path)
+          # converted_data = "test" unless defined?(do_convert(file))
+          converted_data = do_convert(file)
+          save(html_file_path, converted_data)
         end
       end
 
       private
+
+      def do_convert(file)
+        data = File.read(file)
+        Kramdown::Document.new(data).to_html
+      end
 
       def save(file_path, data)
         File.open(file_path, "w:UTF-8") do |f|
