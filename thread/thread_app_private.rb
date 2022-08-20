@@ -5,7 +5,10 @@ module ThreadEx
 
       def do_thread(&block)
         # якесь повідомлення
-        @threads << Thread.new(&block) #do
+        @threads << Thread.new do 
+            block
+            puts Thread.current[:name] = "success"
+        end #do
         #     puts Thread.current[:name] = "thread #{i+1}"
         # end
         # чи можна розширити блок який нам передають додатковим функціоналом
