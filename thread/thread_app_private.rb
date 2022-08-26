@@ -19,10 +19,13 @@ module ThreadEx
         Kramdown::Document.new(data).to_html
       end
 
+      # def save(file_path, data)
+      #   File.open(file_path, "w:UTF-8") do |f|
+      #     f.write(data)
+      #   end
+      # end
       def save(file_path, data)
-        File.open(file_path, "w:UTF-8") do |f|
-          f.write(data)
-        end
+        @callable.call(file_path, data)
       end
 
       def each_file
