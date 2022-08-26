@@ -12,6 +12,7 @@ module ThreadEx
           do_thread do
             converted_data = do_convert(file)
             save(html_file_path, converted_data)
+            # l = 5
           end 
         end
         @threads.map(&:value)
