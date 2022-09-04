@@ -1,4 +1,4 @@
-require_relative "thread_app_libs"
+require_relative "thread_app_config"
 
 thread = ThreadEx::ThreadApp
 
